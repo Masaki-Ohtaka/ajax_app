@@ -1,9 +1,15 @@
 class PostsController < ApplicationController 
   
   def index
-    @posts = Post.all  # すべてのレコードを@postsに代入
+    @posts = Post.all.order(id: "DESC")  # 全レコードを@postsに代入〜新しいメモが一番上に表示させる様にする
   end
 
-  def new
+  #def new 投稿する機能がない為削除
+  #end
+
+  def create
+    Post.create(content: params[:contet])
+    redirect_to action: :index
   end
+  
 end

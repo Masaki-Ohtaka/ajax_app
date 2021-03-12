@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'posts', to: 'posts#index'
-  get 'posts/new',to: 'posts#new'
+  root to: 'posts#index' #⇦編集トップページにアクセルする様に設定した
+  #投稿完了しましたという機能をがない為、ページは不要なので削除⇨get 'posts/new',to: 'posts#new'
   post 'posts', to: 'posts#create'
 end
