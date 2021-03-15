@@ -14,14 +14,13 @@ class PostsController < ApplicationController
   
   def checked
     post = Post.find(params[:id])
-    if post.checked 
-      post.update(checked: false)
+    if post.checked #既読であるか否かの判定
+      post.update(checked: false)#既読を解除するためfalseへ
     else
-      post.update(checked: true)
+      post.update(checked: true)#既読にするためtrueへ変更
     end
 
     item = Post.find(params[:id])
     render json: { post: item }
   end
-
 end
